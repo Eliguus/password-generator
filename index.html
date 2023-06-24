@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    
+</head>
+<body>
+    <!-- this is where password is generated -->
+    <div>
+        <input type="range" min="8" max="15" step="1" value="8" onchange="passwordGenerator(this.value)">
+        <p id="a"></p>
+
+    </div>
+
+
+
+   <!-- this is where password cracktime told -->
+
+     
+    <div>
+
+        <input type="text" id="passwordInput" onchange="checkPassword()" placeholder="Enter password">
+        <p id="crack"></p>
+  <script>
+    function checkPassword() {
+      const password = document.getElementById("passwordInput").value;
+      const mellt = new Mellt();
+      const daysToCrack = mellt.CheckPassword(password);
+      document.getElementById('crack').innerHTML=daysToCrack
+      console.log("Days to crack:", daysToCrack);
+    }
+  </script>
+
+    </div>
+
+    
+
+
+    <script src="index.js"></script>
+
+    <script src="Mellt.js"></script>
+    
+    <script src="common-passwords.js"></script>
+</body>
+</html>
